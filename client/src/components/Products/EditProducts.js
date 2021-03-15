@@ -23,7 +23,7 @@ const EditProducts = ({ product }) => {
           body: JSON.stringify(body),
         }
       );
-      window.location = "/";
+      window.location = "http://localhost:3000/products";
     } catch (error) {
       console.error(error.message);
     }

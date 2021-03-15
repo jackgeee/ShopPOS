@@ -2,15 +2,15 @@ import React, { Fragment } from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
 import "./App.css";
 
-import InputProducts from "./components/Products/InputProducts";
-import ListProducts from "./components/Products/ListProducts";
+import ProductsPage from "./views/ProductsPage";
+import LandingPage from "./views/LandingPage";
+import SignupPage from "./views/SignupPage";
+
 
 function App() {
   return (
     <Fragment>
       <div>
-        {/* <InputProducts />
-        <ListProducts /> */}
         <Navigation />
         <Main />
       </div>
@@ -22,37 +22,29 @@ const Navigation = () => (
   <nav>
     <ul>
       <li>
-        <NavLink exact activeClassName= "current" to ='/mainpage'>Main Page</NavLink>
+        <NavLink exact activeClassName="current" to="/landingpage">
+          Main Page
+        </NavLink>
       </li>
       <li>
-      <NavLink exact activeClassName= "current" to ='/signup'>Sign Up</NavLink>
+        <NavLink exact activeClassName="current" to="/products">
+          Products
+        </NavLink>
+      </li>
+      <li>
+        <NavLink exact activeClassName="current" to="/signup">
+          Sign up
+        </NavLink>
       </li>
     </ul>
   </nav>
 );
 
-// VIEWS //
-
-const MainPage = () => (
-  <div className="mainpage">
-    <h1>Welcome</h1>
-    <p>hello</p>
-  </div>
-);
-
-const Signup = () => (
-  <div className="signup">
-    <h1>signup</h1>
-    <p>please sign up</p>
-  </div>
-);
-
-//
-
 const Main = () => (
   <Switch>
-    <Route exact path="/mainpage" component={MainPage}></Route>
-    <Route exact path="/signup" component={Signup}></Route>
+    <Route exact path="/landingpage" component={LandingPage}></Route>
+    <Route path="/products" component={ProductsPage}></Route>
+    <Route exact path="/signup" component={SignupPage}></Route>
   </Switch>
 );
 
