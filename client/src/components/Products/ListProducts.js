@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
-// import EditDoctors from "./EditDoctors";
+import EditProducts from "./EditProducts";
+
 
 const ListProducts = () => {
   const [products, setProducts] = useState([]);
@@ -49,7 +50,7 @@ const ListProducts = () => {
               <td>
                 <img src={product.product_image} width = "100" height = "100" alt = "product_image" />
               </td>
-              {/* <td><EditDoctors product={product} /></td> */}
+              <td><EditProducts product={product} /></td>
               <td>
               <button onClick={() => deleteProduct(product.product_id)}>
                 Delete

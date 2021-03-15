@@ -58,3 +58,23 @@ app.delete("/products/:id", async (req, res) => {
     console.log(error.message);
   }
 });
+
+// EDIT A PRODUCT //
+app.patch("/products/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      product_name,
+      product_description,
+      product_price,
+      product_image,
+    } = req.body;
+    const update_product = await pool.query(
+      "UPDATE products SET product_name = $1, product_description = $2, product_price = $3, product_image = $4 WHERE product_id = $5",
+      [product_name, product_description, product_price, product_image, id]
+    );
+    res.json("Product updated");
+  } catch (error) {
+    console.error(error.message);
+  }
+});

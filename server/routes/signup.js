@@ -24,7 +24,7 @@ app.post("/signup", async (req, res) => {
     }
 
     const new_user = await pool.query(
-      "INSERT INTO users (user_name, user_password, user_email) VALUES($1, crypt($2, gen_salt('bf', 8)), $3) RETURNING *",
+      "INSERT INTO users (user_name, user_password, user_email) VALUES($1, crypt($2, gen_salt('bf', 8)), $3)",
       [user_name, user_password, user_email]
     );
     res.json("User signed up");
