@@ -8,12 +8,12 @@ app.use(cors());
 app.use(express.json());
 
 const Product_Routes = require("./routes/products");
-// const getProduct = require("./routes/products");
-const User_Routes = require("./routes/users");
+const Signup_Routes = require("./routes/signup");
+const Login_Routes = require("./routes/login");
 
 app.use(Product_Routes);
-// app.use(getProduct);
-app.use(User_Routes);
+app.use(Signup_Routes);
+app.use(Login_Routes);
 
 // // ROUTES //
 

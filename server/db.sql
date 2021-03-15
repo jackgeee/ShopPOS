@@ -12,3 +12,9 @@ CREATE TABLE users (
     user_password VARCHAR(50),
     user_email VARCHAR(100)
 );
+
+CREATE TABLE admins (
+    admin_id SERIAL PRIMARY KEY,
+    admin_name VARCHAR(50),
+    admin_password VARCHAR(50)
+);
