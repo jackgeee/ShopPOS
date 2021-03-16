@@ -2,9 +2,9 @@ const express = require("express");
 const pool = require("../db");
 const app = (module.exports = express());
 
-// CHECK IF NON-ADMIN USER IN DB, SET LOGGED_IN SESSION//
+//SET LOGGED_IN == FALSE//
 
-app.post("/login", async (req, res) => {
+app.post("/logout", async (req, res) => {
   try {
     const { user_name, user_password } = req.body;
     const user_check = await pool.query(
@@ -17,7 +17,6 @@ app.post("/login", async (req, res) => {
         "UPDATE users SET logged_in = TRUE WHERE user_name = $1",
         [user_name]
       );
-      res.cookie('user_name', user_name).send('cookie set');
     } else {
       res.json("Wrong username or password");
     }
@@ -26,17 +25,3 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// CHECK IF LOGGED_IN SESSION == TRUE // 
-
-app.get("/login", async (req, res) => {
-  try {
-    const { user_name } = req.body;
-    get_user_session = await pool.query(
-      "SELECT (logged_in) FROM users WHERE user_name = $1",
-      [user_name]
-    );
-    res.json(get_user_session.rows);
-  } catch (error) {
-    console.error(error.message);
-  }
-});
