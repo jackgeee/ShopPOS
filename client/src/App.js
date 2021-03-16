@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
 import "./App.css";
 
+
 import ProductsPage from "./views/ProductsPage";
 import LandingPage from "./views/LandingPage";
 import SignupPage from "./views/SignupPage";
@@ -43,7 +44,7 @@ const Navigation = () => (
 const Main = () => (
   <Switch>
     <Route exact path="/landingpage" component={LandingPage}></Route>
-    <Route path="/products" component={ProductsPage}></Route>
+    <Route exact path="/products" component={ProductsPage}></Route>
     <Route exact path="/signup" component={SignupPage}></Route>
   </Switch>
 );

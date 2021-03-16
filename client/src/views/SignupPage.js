@@ -1,7 +1,7 @@
 import SignupUser from "../components/Auth/SignupUser";
 
 const SignupPage = () => (
-    <div className="products">
+    <div className="signup">
       <SignupUser />
     </div>
   );

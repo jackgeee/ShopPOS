@@ -62,3 +62,17 @@ app.post("/signup_admin", async (req, res) => {
     console.log(error.message);
   }
 });
+
+// GET NON ADMIN USER // 
+app.get("/signup/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await pool.query(
+      "SELECT * FROM users WHERE user_id = $1",
+      [id]
+    );
+    res.json(product.rows[0]);
+  } catch (error) {
+    console.log(error.message);
+  }
+});
