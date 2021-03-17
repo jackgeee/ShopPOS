@@ -1,14 +1,14 @@
 // import React, { Fragment, useState } from "react";
 import Cookies from "js-cookie";
 
-const LogoutUser = () => {
+const LogoutAdmin = () => {
 
   const logOut = async () => {
-    const user_name = Cookies.get("user_name");
+    const admin_name = Cookies.get("admin_name");
     // console.log(user_name);
     try {
-        const body = {user_name};
-        const log_out_user = await fetch("http://localhost:5000/logout", {
+        const body = {admin_name};
+        const log_out_admin = await fetch("http://localhost:5000/logout_admin", {
             method: "PATCH", 
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body),
@@ -23,4 +23,4 @@ const LogoutUser = () => {
 
 };
 
-export default LogoutUser;
+export default LogoutAdmin;

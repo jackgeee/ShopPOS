@@ -2,7 +2,7 @@ const express = require("express");
 const pool = require("../db");
 const app = (module.exports = express());
 
-//SET LOGGED_IN == FALSE//
+//LOGOUT USER//
 
 app.patch("/logout", async (req, res) => {
   try {
@@ -17,3 +17,18 @@ app.patch("/logout", async (req, res) => {
   }
 });
 
+
+// LOUGOUT ADMIN // 
+
+app.patch("/logout_admin", async (req, res) => {
+    try {
+      const { admin_name } = req.body;
+      const admin_check = await pool.query(
+        "UPDATE admins SET logged_in = FALSE WHERE admin_name = $1",
+        [admin_name]
+      );
+      res.json("admin logged out");
+    } catch (error) {
+      console.error(error.message);
+    }
+  });
