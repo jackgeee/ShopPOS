@@ -15,7 +15,7 @@ const AddToCart = ({ product }) => {
         `http://localhost:5000/products/${product.product_id}`
       );
       const data = await response.json();
-      cartInfo.push(data["product_name"], data["product_id"]);
+      cartInfo.push(data["product_name"], data["product_id"], data["product_price"], data["product_image"]);
       return cartInfo;
     } catch (error) {
       console.error(error.message);
@@ -28,8 +28,10 @@ const AddToCart = ({ product }) => {
       const cartInfo = await getProduct(e);
       const product_name = cartInfo[0];
       const product_id = cartInfo[1];
+      const product_price = cartInfo[2];
+      const product_image = cartInfo[3];
       const user_name = user_name_cookie;
-      const body = { product_name, product_id, quantity, user_name }
+      const body = { product_name, product_price, product_id, quantity, user_name, product_image }
       const response = await fetch("http://localhost:5000/shopping_cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

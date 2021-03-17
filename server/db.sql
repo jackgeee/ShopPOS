@@ -4,6 +4,7 @@ CREATE TABLE products (
     product_name VARCHAR(50),
     product_description VARCHAR(50),
     product_price DECIMAL(4, 2)
+    product_image VARCHAR(100)
 );
 
 CREATE TABLE users (
