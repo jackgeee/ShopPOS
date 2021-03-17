@@ -8,6 +8,14 @@ import {Admin, User} from "./App";
 import { BrowserRouter } from 'react-router-dom';
 import Cookies from "js-cookie";
 
+
+// function createCookie(name, value) {
+//   document.cookie = name + "=" + value + "; path=/";
+// }
+
+// // RUN THIS ON INITIALIZATION 
+// createCookie("admin_name", "god");
+
 const admin_logged = Cookies.get("admin_name");
 const user_logged = Cookies.get("user_name");
 console.log(admin_logged);

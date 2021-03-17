@@ -4,6 +4,7 @@ import "./App.css";
 // import Cookies from "js-cookie";
 
 import ProductsPage from "./views/ProductsPage";
+import ProductsPageUser from "./views/ProductsPageUser";
 import LandingPage from "./views/LandingPage";
 import SignupPage from "./views/SignupPage";
 import LoginPage from "./views/LoginPage";
@@ -15,7 +16,7 @@ function adminApp() {
   return (
     <Fragment>
       <div>
-        <Navigation />
+        <NavigationAdmin />
         <Main />
       </div>
     </Fragment>
@@ -28,20 +29,25 @@ function userApp() {
   return (
     <Fragment>
       <div>
-        <Navigation2 />
-        <Main2 />
+        <NavigationUser />
+        <MainUser />
       </div>
     </Fragment>
   );
 }
 
 
-const Navigation2 = () => (
+const NavigationUser = () => (
   <nav>
     <ul>
       <li>
         <NavLink exact activeClassName="current" to="/landingpage">
           Main Page
+        </NavLink>
+      </li>
+      <li>
+        <NavLink exact activeClassName="current" to="/products_user">
+          Products
         </NavLink>
       </li>
       <li>
@@ -75,7 +81,7 @@ const Navigation2 = () => (
   </nav>
 );
 
-const Navigation = () => (
+const NavigationAdmin = () => (
   <nav>
     <ul>
       <li>
@@ -129,9 +135,10 @@ const Main = () => (
   </Switch>
 );
 
-const Main2 = () => (
+const MainUser = () => (
   <Switch>
     <Route exact path="/landingpage" component={LandingPage}></Route>
+    <Route exact path="/products_user" component={ProductsPageUser}></Route>
     <Route exact path="/signup" component={SignupPage}></Route>
     <Route exact path="/login" component={LoginPage}></Route>
     <Route exact path="/login_admin" component={LoginAdminPage}></Route>
