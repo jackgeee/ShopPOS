@@ -26,7 +26,7 @@ const LoginAdmin = () => {
         createCookie("admin_name", admin_name);
         // var test = Cookies.get("admin_name");
         // console.log(test);
-        window.location  = ("http://localhost:3000/landingpage")
+        window.location  = ("http://localhost:3000/products")
       } else {
         window.alert("Wrong admin_name or password");
       }

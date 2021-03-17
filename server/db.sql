@@ -18,3 +18,9 @@ CREATE TABLE admins (
     admin_name VARCHAR(50),
     admin_password VARCHAR(50)
 );
+
+CREATE TABLE shopping_cart (
+    product_name VARCHAR(50),
+    product_id VARCHAR(10),
+    quantity VARCHAR(3)
+);

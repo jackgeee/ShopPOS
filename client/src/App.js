@@ -7,10 +7,12 @@ import ProductsPage from "./views/Admin/ProductsPage";
 import ProductsPageUser from "./views/User/ProductsPageUser";
 import LandingPage from "./views/User/LandingPage";
 import SignupPage from "./views/User/SignupPage";
+import SignupPageAdmin from "./views/Admin/SignupPageAdmin";
 import LoginPage from "./views/User/LoginPage";
 import LoginAdminPage from "./views/Admin/LoginAdminPage";
 import LogoutUser from "./components/Auth/User/LogoutUser";
 import LogoutAdmin from "./components/Auth/Admin/LogoutAdmin";
+import UserCart from "./components/Products/User/UserCart";
 
 function adminApp() {
   return (
@@ -23,8 +25,6 @@ function adminApp() {
   );
 }
 
-
-
 function userApp() {
   return (
     <Fragment>
@@ -35,7 +35,6 @@ function userApp() {
     </Fragment>
   );
 }
-
 
 const NavigationUser = () => (
   <nav>
@@ -51,18 +50,18 @@ const NavigationUser = () => (
         </NavLink>
       </li>
       <li>
-        <NavLink exact activeClassName="current" to="/signup">
+        <NavLink exact activeClassName="current" to="/user_cart">
+          Cart
+        </NavLink>
+      </li>
+      <li>
+        <NavLink exact activeClassName="current" to="/signup_user">
           Sign up
         </NavLink>
       </li>
       <li>
-        <NavLink exact activeClassName="current" to="/login">
+        <NavLink exact activeClassName="current" to="/login_user">
           Log in
-        </NavLink>
-      </li>
-      <li>
-        <NavLink exact activeClassName="current" to="/login_admin">
-          Log in Administrator
         </NavLink>
       </li>
       <li>
@@ -85,28 +84,23 @@ const NavigationAdmin = () => (
   <nav>
     <ul>
       <li>
-        <NavLink exact activeClassName="current" to="/landingpage">
-          Main Page
-        </NavLink>
-      </li>
-      <li>
         <NavLink exact activeClassName="current" to="/products">
           Products
         </NavLink>
       </li>
       <li>
-        <NavLink exact activeClassName="current" to="/signup">
-          Sign up
-        </NavLink>
-      </li>
-      <li>
-        <NavLink exact activeClassName="current" to="/login">
-          Log in
+        <NavLink exact activeClassName="current" to="/signup_admin">
+          Sign up Admin
         </NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/login_admin">
           Log in Administrator
+        </NavLink>
+      </li>
+      <li>
+        <NavLink exact activeClassName="current" to="/login_user">
+          Log in User
         </NavLink>
       </li>
       <li>
@@ -129,9 +123,9 @@ const Main = () => (
   <Switch>
     <Route exact path="/landingpage" component={LandingPage}></Route>
     <Route exact path="/products" component={ProductsPage}></Route>
-    <Route exact path="/signup" component={SignupPage}></Route>
-    <Route exact path="/login" component={LoginPage}></Route>
+    <Route exact path="/signup_admin" component={SignupPageAdmin}></Route>
     <Route exact path="/login_admin" component={LoginAdminPage}></Route>
+    <Route exact path="/login_user" component={LoginPage}></Route>
   </Switch>
 );
 
@@ -139,13 +133,11 @@ const MainUser = () => (
   <Switch>
     <Route exact path="/landingpage" component={LandingPage}></Route>
     <Route exact path="/products_user" component={ProductsPageUser}></Route>
-    <Route exact path="/signup" component={SignupPage}></Route>
-    <Route exact path="/login" component={LoginPage}></Route>
-    <Route exact path="/login_admin" component={LoginAdminPage}></Route>
+    <Route exact path="/signup_user" component={SignupPage}></Route>
+    <Route exact path="/login_user" component={LoginPage}></Route>
+    <Route exact path="/user_cart" component={UserCart}></Route>
   </Switch>
 );
-
-
 
 export const Admin = adminApp;
 export const User = userApp;

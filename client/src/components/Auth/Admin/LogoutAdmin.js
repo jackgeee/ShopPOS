@@ -14,7 +14,7 @@ const LogoutAdmin = () => {
             body: JSON.stringify(body),
 
         });
-        window.location = ("http://localhost:3000/login");
+        window.location = ("http://localhost:3000/login_admin");
     } catch (error) {
       console.error(error.message);
     }

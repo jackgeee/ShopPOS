@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-
+import AddToCart from "./AddToCart";
 
 const ListProducts = () => {
   const [products, setProducts] = useState([]);
@@ -37,6 +37,11 @@ const ListProducts = () => {
               <td>{product.product_price}</td>
               <td>
                 <img src={product.product_image} width = "100" height = "100" alt = "product_image" />
+              </td>
+              <td>
+                <button>
+                  <AddToCart product={product}/>
+                </button>
               </td>
             </tr>
           ))}

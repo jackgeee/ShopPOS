@@ -16,7 +16,6 @@ app.post("/signup", async (req, res) => {
       "SELECT 1 FROM users WHERE user_name = $1",
       [user_name]
     );
-    
 
     if (user_check.rows.length > 0) {
       console.log("Username already taken");
@@ -26,6 +25,10 @@ app.post("/signup", async (req, res) => {
     const new_user = await pool.query(
       "INSERT INTO users (user_name, user_password, user_email, logged_in) VALUES($1, crypt($2, gen_salt('bf', 8)), $3, TRUE)",
       [user_name, user_password, user_email]
+    );
+    const user_logged_in = await pool.query(
+      "UPDATE users SET logged_in = TRUE WHERE user_name = $1",
+      [user_name]
     );
     res.json("User signed up");
   } catch (error) {
@@ -57,20 +60,24 @@ app.post("/signup_admin", async (req, res) => {
       "INSERT INTO admins (admin_name, admin_password) VALUES($1, crypt($2, gen_salt('bf', 8))) RETURNING *",
       [admin_name, admin_password]
     );
+    const admin_logged_in = await pool.query(
+      "UPDATE admins SET logged_in = TRUE WHERE admin_name = $1",
+      [admin_name]
+    );
+
     res.json(new_admin.rows);
   } catch (error) {
     console.log(error.message);
   }
 });
 
-// GET NON ADMIN USER // 
+// GET NON ADMIN USER //
 app.get("/signup/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const product = await pool.query(
-      "SELECT * FROM users WHERE user_id = $1",
-      [id]
-    );
+    const product = await pool.query("SELECT * FROM users WHERE user_id = $1", [
+      id,
+    ]);
     res.json(product.rows[0]);
   } catch (error) {
     console.log(error.message);

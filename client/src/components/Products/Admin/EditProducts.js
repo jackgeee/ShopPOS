@@ -6,7 +6,7 @@ const EditProducts = ({ product }) => {
   const [product_price, setPrice] = useState(product.product_price);
   const [product_image, setImage] = useState(product.product_image);
 
-  const updateAttributes = async (e) => {
+  const updateProduct = async (e) => {
     e.preventDefault();
     try {
       const body = {
@@ -98,7 +98,7 @@ const EditProducts = ({ product }) => {
                 type="button"
                 className="btn btn-warning"
                 data-dismiss="modal"
-                onClick={(e) => updateAttributes(e)}
+                onClick={(e) => updateProduct(e)}
               >
                 Edit
               </button>
