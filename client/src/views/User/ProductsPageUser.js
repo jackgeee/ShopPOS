@@ -1,5 +1,5 @@
 
-import ListProductsUser from "../components/Products/ListProductsUser";
+import ListProductsUser from "../../components/Products/User/ListProductsUser";
 
 
 const ProductsPageUser = () => (

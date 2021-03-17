@@ -1,5 +1,5 @@
-import InputProducts from "../components/Products/InputProducts";
-import ListProducts from "../components/Products/ListProducts";
+import InputProducts from "../../components/Products/Admin/InputProducts";
+import ListProducts from "../../components/Products/Admin/ListProducts";
 
 
 const ProductsPage = () => (

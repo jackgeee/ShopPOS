@@ -1,4 +1,4 @@
-import LoginUser from "../components/Auth/LoginUser";
+import LoginUser from "../../components/Auth/User/LoginUser";
 
 
 const LoginPage = () => (

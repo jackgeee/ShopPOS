@@ -1,4 +1,4 @@
-import SignupUser from "../components/Auth/SignupUser";
+import SignupUser from "../../components/Auth/User/SignupUser";
 
 const SignupPage = () => (
     <div className="signup">

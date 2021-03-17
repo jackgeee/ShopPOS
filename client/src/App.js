@@ -3,14 +3,14 @@ import { NavLink, Switch, Route } from "react-router-dom";
 import "./App.css";
 // import Cookies from "js-cookie";
 
-import ProductsPage from "./views/ProductsPage";
-import ProductsPageUser from "./views/ProductsPageUser";
-import LandingPage from "./views/LandingPage";
-import SignupPage from "./views/SignupPage";
-import LoginPage from "./views/LoginPage";
-import LoginAdminPage from "./views/LoginAdminPage";
-import LogoutUser from "./components/Auth/LogoutUser";
-import LogoutAdmin from "./components/Auth/LogoutAdmin";
+import ProductsPage from "./views/Admin/ProductsPage";
+import ProductsPageUser from "./views/User/ProductsPageUser";
+import LandingPage from "./views/User/LandingPage";
+import SignupPage from "./views/User/SignupPage";
+import LoginPage from "./views/User/LoginPage";
+import LoginAdminPage from "./views/Admin/LoginAdminPage";
+import LogoutUser from "./components/Auth/User/LogoutUser";
+import LogoutAdmin from "./components/Auth/Admin/LogoutAdmin";
 
 function adminApp() {
   return (

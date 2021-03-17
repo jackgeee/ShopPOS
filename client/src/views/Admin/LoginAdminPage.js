@@ -1,4 +1,4 @@
-import LoginAdmin from "../components/Auth/LoginAdmin";
+import LoginAdmin from "../../components/Auth/Admin/LoginAdmin";
 
 const LoginAdminPage = () => (
     <div className="login_admin">
