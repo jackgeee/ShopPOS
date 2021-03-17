@@ -8,9 +8,11 @@ import ProductsPage from "./views/ProductsPage";
 import LandingPage from "./views/LandingPage";
 import SignupPage from "./views/SignupPage";
 import LoginPage from "./views/LoginPage";
+import LogoutUsers from "./components/Auth/LogoutUser";
+import LogoutUser from "./components/Auth/LogoutUser";
 
-var test = Cookies.get('test_cookie')
-console.log(test);
+
+
 
 function App() {
   return (
@@ -47,7 +49,7 @@ const Navigation = () => (
         </NavLink>
       </li>
       <li>
-        <NavLink className = "logout" exact to="/logout">
+        <NavLink className = "logout" exact to="/logout" onClick= {() => {LogoutUser();}}>
          Log out
         </NavLink>
       </li>
