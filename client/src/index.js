@@ -3,24 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import user from './App';
 // import admin from './App'
-import {Admin, User} from "./App";
+import {Admin, User, Init} from "./App";
 
 import { BrowserRouter } from 'react-router-dom';
 import Cookies from "js-cookie";
 
 
-// function createCookie(name, value) {
-//   document.cookie = name + "=" + value + "; path=/";
-// }
+function createCookie(name, value) {
+  document.cookie = name + "=" + value + "; path=/";
+}
 
-// // RUN THIS ON INITIALIZATION 
-// createCookie("admin_name", "god");
+// RUN THIS ON INITIALIZATION 
+createCookie("admin_name", "god");
 
 const admin_logged = Cookies.get("admin_name");
 const user_logged = Cookies.get("user_name");
-console.log(admin_logged);
-console.log(user_logged);
-
 
 if (admin_logged) {
 
@@ -41,3 +38,14 @@ ReactDOM.render(
 );
 
 }
+
+// else {
+
+// ReactDOM.render(
+//   <BrowserRouter>
+//   <Init />
+//   </BrowserRouter>,
+//   document.getElementById('root')
+//   );
+
+// }

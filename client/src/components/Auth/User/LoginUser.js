@@ -17,15 +17,6 @@ import {
 } from "@material-ui/core/styles";
 import { purple, green } from "@material-ui/core/colors";
 
-const useStyles = makeStyles({
-  root: {
-    background: "linear-gradient(45deg, #333, #999)",
-    border: 0,
-    borderRadius: 15,
-    color: "white",
-    padding: "0 30px",
-  },
-});
 
 const theme = createMuiTheme({
   typography: {

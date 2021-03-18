@@ -9,6 +9,7 @@ import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import FormControl from "@material-ui/core/FormControl";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 import {
   makeStyles,
@@ -36,6 +37,11 @@ const theme = createMuiTheme({
     },
   },
 });
+
+const flexContainer = {
+  display: "flex",
+  flexDirection: "row",
+};
 
 const TextFieldProducts = () => {
   const [product_name, setName] = useState("");
@@ -67,43 +73,54 @@ const TextFieldProducts = () => {
     <Fragment>
       <ThemeProvider theme={theme}>
         <Container maxWidth="lg" align="center">
-        <Typography variant="h1" align="center">
-            Add inventory 
+          <Typography variant="h1" align="center">
+            Add Inventory
           </Typography>
-          <form onSubmit={onSubmitForm} className="mt-5 text-center">
-          <FormControl>
-            <TextField
-              variant = "outlined"
-              label = "Product Name"
-              type="text"
-              value={product_name}
-              onChange={(e) => setName(e.target.value)}
-            ></TextField>
-            <textarea
-              variant = "outlined"
-              label = "Description"
-              type="text"
-              value={product_description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-            <TextField
-               variant = "outlined"
-               label = "Price"
-              type="number"
-              step="0.01"
-              value={product_price}
-              onChange={(e) => setPrice(e.target.value)}
-            ></TextField>
-            <TextField
-              variant = "outlined"
-              label = "Image URL"
-              type="text"
-              value={product_image}
-              onChange={(e) => setImage(e.target.value)}
-            ></TextField>
-            <button>Add product</button>
-            </FormControl>
-          </form>
+          <div>
+            <form onSubmit={onSubmitForm} className="mt-5 text-center">
+              <FormControl>
+                <TextField
+                  style={{ margin: 8 }}
+                  variant="outlined"
+                  label="Product Name"
+                  type="text"
+                  value={product_name}
+                  onChange={(e) => setName(e.target.value)}
+                ></TextField>
+                <textarea
+                  style={{ margin: 8 }}
+                  placeholder="Description"
+                  type="text"
+                  value={product_description}
+                  onChange={(e) => setDescription(e.target.value)}
+                ></textarea>
+                <TextField
+                  style={{ margin: 8 }}
+                  variant="outlined"
+                  label="Price"
+                  type="number"
+                  step="0.01"
+                  value={product_price}
+                  onChange={(e) => setPrice(e.target.value)}
+                ></TextField>
+                <TextField
+                  style={{ margin: 8 }}
+                  variant="outlined"
+                  label="Image URL"
+                  type="text"
+                  value={product_image}
+                  onChange={(e) => setImage(e.target.value)}
+                ></TextField>
+                <Button
+                  endIcon={<AddCircleIcon />}
+                  variant="outlined"
+                  size="sm"
+                >
+                  Add product
+                </Button>
+              </FormControl>
+            </form>
+          </div>
         </Container>
       </ThemeProvider>
     </Fragment>

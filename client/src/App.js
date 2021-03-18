@@ -2,14 +2,13 @@ import React, { Fragment } from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
 import "./App.css";
 import "fontsource-roboto";
-import AppBar from "@material-ui/core/AppBar";
-import ToolBar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
-import HomeIcon from '@material-ui/icons/Home';
+import HomeIcon from "@material-ui/icons/Home";
+import ShopIcon from "@material-ui/icons/Shop";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import LockOpenIcon from "@material-ui/icons/LockOpen";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 // import Cookies from "js-cookie";
 
 import ProductsPage from "./views/Admin/ProductsPage";
@@ -23,6 +22,7 @@ import LogoutUser from "./components/Auth/User/LogoutUser";
 import LogoutAdmin from "./components/Auth/Admin/LogoutAdmin";
 import UserCart from "./components/Products/User/UserCart";
 
+
 function adminApp() {
   return (
     <Fragment>
@@ -32,17 +32,6 @@ function adminApp() {
       </div>
     </Fragment>
   );
-}
-
-{
-  /* <AppBar>
-  <ToolBar>
-    <IconButton>
-      <MenuIcon />
-    </IconButton>
-    <Typography variant="h6">Hello</Typography>
-  </ToolBar>
-</AppBar>; */
 }
 
 function userApp() {
@@ -55,6 +44,20 @@ function userApp() {
     </Fragment>
   );
 }
+
+function initApp() {
+  return (
+    <Fragment>
+      <div>
+        <NavigationInit />
+        <MainInit />
+      </div>
+    </Fragment>
+  );
+}
+
+
+
 
 const NavigationUser = () => (
   <nav>
@@ -73,11 +76,11 @@ const NavigationUser = () => (
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/products_user">
-        <Button
+          <Button
             variant="contained"
             size="medium"
             color="primary"
-            endIcon={<HomeIcon />}
+            endIcon={<ShopIcon />}
           >
             Products
           </Button>
@@ -85,11 +88,11 @@ const NavigationUser = () => (
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/user_cart">
-        <Button
+          <Button
             variant="contained"
             size="medium"
             color="primary"
-            endIcon={<HomeIcon />}
+            endIcon={<ShoppingCartIcon />}
           >
             Cart
           </Button>
@@ -97,11 +100,11 @@ const NavigationUser = () => (
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/signup_user">
-        <Button
+          <Button
             variant="contained"
             size="medium"
             color="primary"
-            endIcon={<HomeIcon />}
+            endIcon={<PersonAddIcon />}
           >
             Sign up
           </Button>
@@ -109,11 +112,11 @@ const NavigationUser = () => (
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/login_user">
-        <Button
+          <Button
             variant="contained"
             size="medium"
             color="primary"
-            endIcon={<HomeIcon />}
+            endIcon={<LockOpenIcon />}
           >
             Log in
           </Button>
@@ -128,11 +131,11 @@ const NavigationUser = () => (
             LogoutUser();
           }}
         >
-           <Button
+          <Button
             variant="contained"
             size="medium"
             color="primary"
-            endIcon={<HomeIcon />}
+            endIcon={<ExitToAppIcon />}
           >
             Log out
           </Button>
@@ -147,22 +150,62 @@ const NavigationAdmin = () => (
     <ul>
       <li>
         <NavLink exact activeClassName="current" to="/products">
-          Products
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Products
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/signup_admin">
-          Sign up Admin
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Signup Administrator
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/login_admin">
-          Log in Administrator
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Login Administrator
+          </Button>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink exact activeClassName="current" to="/signup_user">
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<PersonAddIcon />}
+          >
+            Signup User
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/login_user">
-          Log in User
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Login User
+          </Button>
         </NavLink>
       </li>
       <li>
@@ -174,11 +217,73 @@ const NavigationAdmin = () => (
             LogoutAdmin();
           }}
         >
-          Log out
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Log Out Administrator
+          </Button>
         </NavLink>
       </li>
     </ul>
   </nav>
+);
+
+const NavigationInit = () => (
+  <nav>
+  <ul>
+    <li>
+      <NavLink exact activeClassName="current" to="/signup_admin">
+        <Button
+          variant="contained"
+          size="medium"
+          color="primary"
+          endIcon={<HomeIcon />}
+        >
+          Signup Administrator
+        </Button>
+      </NavLink>
+    </li>
+    <li>
+      <NavLink exact activeClassName="current" to="/login_admin">
+        <Button
+          variant="contained"
+          size="medium"
+          color="primary"
+          endIcon={<HomeIcon />}
+        >
+          Login Administrator
+        </Button>
+      </NavLink>
+    </li>
+    <li>
+      <NavLink exact activeClassName="current" to="/signup_user">
+        <Button
+          variant="contained"
+          size="medium"
+          color="primary"
+          endIcon={<PersonAddIcon />}
+        >
+          Signup User
+        </Button>
+      </NavLink>
+    </li>
+    <li>
+      <NavLink exact activeClassName="current" to="/login_user">
+        <Button
+          variant="contained"
+          size="medium"
+          color="primary"
+          endIcon={<HomeIcon />}
+        >
+          Login User
+        </Button>
+      </NavLink>
+    </li>
+  </ul>
+</nav>
 );
 
 const Main = () => (
@@ -201,5 +306,16 @@ const MainUser = () => (
   </Switch>
 );
 
+const MainInit = () => (
+  <Switch>
+    <Route exact path="/landingpage" component={LandingPage}></Route>
+    <Route exact path="/signup_user" component={SignupPage}></Route>
+    <Route exact path="/login_user" component={LoginPage}></Route>
+    <Route exact path="/signup_admin" component={SignupPageAdmin}></Route>
+    <Route exact path="/login_admin" component={LoginAdminPage}></Route>
+  </Switch>
+);
+
 export const Admin = adminApp;
 export const User = userApp;
+export const Init = initApp;

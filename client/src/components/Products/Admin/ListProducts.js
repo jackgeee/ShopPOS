@@ -1,5 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
+import Button from "@material-ui/core/Button";
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditProducts from "./EditProducts";
+
 
 
 const ListProducts = () => {
@@ -39,6 +42,9 @@ const ListProducts = () => {
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Image</th>
+            <th>Edit Product</th>
+            <th>Delete Product</th>
           </tr>
         </thead>
         <tbody>
@@ -52,9 +58,13 @@ const ListProducts = () => {
               </td>
               <td><EditProducts product={product} /></td>
               <td>
-              <button onClick={() => deleteProduct(product.product_id)}>
+              <Button 
+               endIcon={<DeleteForeverIcon/>}
+               variant="outlined"
+               size="small"
+              onClick={() => deleteProduct(product.product_id)}>
                 Delete
-              </button>
+              </Button>
               </td>
             </tr>
           ))}

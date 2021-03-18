@@ -38,6 +38,11 @@ const theme = createMuiTheme({
 });
 
 const SignupAdmin = () => {
+
+  function createCookie(name, value) {
+    document.cookie = name + "=" + value + "; path=/";
+  }
+
   const [admin_name, setAdminName] = useState("");
   const [admin_password, setPassword] = useState("");
   const [confirm_password, setConfirmPassword] = useState("");
@@ -52,6 +57,7 @@ const SignupAdmin = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
         });
+        createCookie("admin_name", admin_name);
         window.location = "http://localhost:3000/products";
         return;
       } catch (error) {

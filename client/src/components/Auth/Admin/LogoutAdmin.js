@@ -3,6 +3,10 @@ import Cookies from "js-cookie";
 
 const LogoutAdmin = () => {
 
+  function eraseCookie(name) {
+    document.cookie = name + "=; Max-Age=-99999999;";
+  }
+
   const logOut = async () => {
     const admin_name = Cookies.get("admin_name");
     // console.log(user_name);
@@ -18,6 +22,7 @@ const LogoutAdmin = () => {
     } catch (error) {
       console.error(error.message);
     }
+    eraseCookie("admin_name");
   };
   logOut();
 

@@ -1,8 +1,12 @@
 import React, { Fragment, useState } from "react";
+import Button from "@material-ui/core/Button";
+import EditIcon from '@material-ui/icons/Edit';
 
 const EditProducts = ({ product }) => {
   const [product_name, setName] = useState(product.product_name);
-  const [product_description, setDescription] = useState(product.product_description);
+  const [product_description, setDescription] = useState(
+    product.product_description
+  );
   const [product_price, setPrice] = useState(product.product_price);
   const [product_image, setImage] = useState(product.product_image);
 
@@ -31,14 +35,15 @@ const EditProducts = ({ product }) => {
 
   return (
     <Fragment>
-      <button
-        type="button"
-        class="btn btn-warning"
+      <Button
+        endIcon={<EditIcon/>}
+        variant="outlined"
+        size="sm"
         data-toggle="modal"
         data-target={`#id${product.product_id}`}
       >
         Edit
-      </button>
+      </Button>
 
       <div class="modal" id={`id${product.product_id}`}>
         <div class="modal-dialog">

@@ -54,7 +54,7 @@ img {
 
 html {
   box-sizing: border-box;
-  background-color: paleturquoise;
+  background-color: white;
 }
 
 *, *::before, *::after {
@@ -92,7 +92,8 @@ nav ul li a {
 }
 
 .current {
-  border-bottom: 4px solid white;
+  border-radius: 5px;
+  border-style:groove
 }
 
 h1 {
@@ -101,7 +102,7 @@ h1 {
 }
 
 body {
-  background-color: plum;
+  background-color: white;
 }
 
 p {

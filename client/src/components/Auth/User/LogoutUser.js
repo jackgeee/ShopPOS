@@ -2,6 +2,7 @@
 import Cookies from "js-cookie";
 
 const LogoutUser = () => {
+  
   function eraseCookie(name) {
     document.cookie = name + "=; Max-Age=-99999999;";
   }
@@ -16,7 +17,7 @@ const LogoutUser = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      window.location = "http://localhost:3000/login";
+      window.location = "http://localhost:3000/login_user";
     } catch (error) {
       console.error(error.message);
     }

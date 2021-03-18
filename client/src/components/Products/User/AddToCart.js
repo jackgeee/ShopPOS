@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Cookies from "js-cookie";
+import Button from "@material-ui/core/Button";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const user_name_cookie = Cookies.get("user_name");
 
@@ -15,7 +17,12 @@ const AddToCart = ({ product }) => {
         `http://localhost:5000/products/${product.product_id}`
       );
       const data = await response.json();
-      cartInfo.push(data["product_name"], data["product_id"], data["product_price"], data["product_image"]);
+      cartInfo.push(
+        data["product_name"],
+        data["product_id"],
+        data["product_price"],
+        data["product_image"]
+      );
       return cartInfo;
     } catch (error) {
       console.error(error.message);
@@ -31,7 +38,14 @@ const AddToCart = ({ product }) => {
       const product_price = cartInfo[2];
       const product_image = cartInfo[3];
       const user_name = user_name_cookie;
-      const body = { product_name, product_price, product_id, quantity, user_name, product_image }
+      const body = {
+        product_name,
+        product_price,
+        product_id,
+        quantity,
+        user_name,
+        product_image,
+      };
       const response = await fetch("http://localhost:5000/shopping_cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -42,16 +56,17 @@ const AddToCart = ({ product }) => {
 
   return (
     <Fragment>
-      <button
+      <Button
+        endIcon={<AddShoppingCartIcon/>}
         onClick={(e) => getProduct(e)}
-        type="button"
-        class="btn btn-warning"
+        variant="outlined"
+        size="sm"
         data-toggle="modal"
         data-target={`#id${product.product_id}`}
       >
-        Add to Cart
-      </button>
-
+        Add To Cart
+      </Button>
+  
       <div class="modal" id={`id${product.product_id}`}>
         <div class="modal-dialog">
           <div class="modal-content">

@@ -1,5 +1,7 @@
 import React, {Fragment, useEffect, useState} from "react";
 import Cookies from "js-cookie";
+import Button from "@material-ui/core/Button";
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 const user_name = Cookies.get("user_name");
 
 const ListProductsInCart = () => {
@@ -47,6 +49,9 @@ const ListProductsInCart = () => {
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Image</th>
+            <th>Remove From Cart</th>
+
           </tr>
         </thead>
         <tbody>
@@ -58,9 +63,15 @@ const ListProductsInCart = () => {
               <td>
                 <img src={product.product_image} width = "100" height = "100" alt = "product_image" />
               </td>
-              <button onClick={() => removeFromCart(product.product_id)}>
+              <td>
+              <Button 
+              endIcon = {<RemoveShoppingCartIcon />}
+              variant = "outlined"
+              size = "sm"
+              onClick={() => removeFromCart(product.product_id)}>
                 Remove from cart
-              </button>
+              </Button>
+              </td>
             </tr>
           ))}
         </tbody>
