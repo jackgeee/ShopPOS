@@ -1,12 +1,48 @@
 import React, { Fragment, useState } from "react";
 
+import Button from "@material-ui/core/Button";
+import "fontsource-roboto";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import FormControl from "@material-ui/core/FormControl";
+
+
+import {
+  makeStyles,
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core/styles";
+import { purple, green } from "@material-ui/core/colors";
+
+const theme = createMuiTheme({
+  typography: {
+    h1: {
+      fontSize: 50,
+      margin: 50,
+    },
+    body: {
+      fontSize: 101,
+    },
+  },
+  palette: {
+    primary: {
+      main: purple[500],
+    },
+    secondary: {
+      main: green[500],
+    },
+  },
+});
+
 const SignupUser = () => {
   const [user_name, setUserName] = useState("");
   const [user_password, setPassword] = useState("");
   const [confirm_password, setConfirmPassword] = useState("");
   const [user_email, setEmail] = useState("");
-  
-  
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -19,7 +55,7 @@ const SignupUser = () => {
           body: JSON.stringify(body),
         });
         window.location = "http://localhost:3000/landingpage";
-        return; 
+        return;
       } catch (error) {
         console.error(error.message);
       }
@@ -30,34 +66,58 @@ const SignupUser = () => {
 
   return (
     <Fragment>
-      <h1 className="mt-5 text-center">Sign Up</h1>
-      <form onSubmit={onSubmitForm} className="mt-5 text-center">
-        <input
-          placeholder="Username"
-          type="text"
-          value={user_name}
-          onChange={(e) => setUserName(e.target.value)}
-        ></input>
-        <input
-          placeholder="Email"
-          type="text"
-          value={user_email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <input
-          placeholder="Password"
-          type="password"
-          value={user_password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <input
-          placeholder="Confirm Password"
-          type="password"
-          value={confirm_password}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        ></input>
-        <button>Sign Up</button>
-      </form>
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
+      <ThemeProvider theme={theme}>
+        <Container maxWidth="lg" align="center">
+          <Typography variant="h1" align="center">
+            Sign up
+          </Typography>
+          <form onSubmit={onSubmitForm} className="mt-5 text-center">
+            <FormControl>
+              <TextField
+                variant="outlined"
+                label="Username"
+                type="text"
+                value={user_name}
+                onChange={(e) => setUserName(e.target.value)}
+              ></TextField>
+              <TextField
+                variant="outlined"
+                label="Email"
+                type="text"
+                value={user_email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></TextField>
+              <TextField
+                variant="outlined"
+                label="Password"
+                type="password"
+                value={user_password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></TextField>
+              <TextField
+                variant="outlined"
+                label="Confirm Password"
+                type="password"
+                value={confirm_password}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              ></TextField>
+              <Button
+                type="submit"
+                variant="contained"
+                size="medium"
+                color="primary"
+                endIcon={<PersonAddIcon />}
+              >
+                Sign Up
+              </Button>
+            </FormControl>
+          </form>
+        </Container>
+      </ThemeProvider>
     </Fragment>
   );
 };

@@ -72,8 +72,7 @@ const LoginAdmin = () => {
         content="minimum-scale=1, initial-scale=1, width=device-width"
       />
       <ThemeProvider theme={theme}>
-        <Container maxWidth="lg" align="center" background-color>
-         
+        <Container maxWidth="lg" align="center">
           <Typography variant="h1" align="center">
             Please login to update inventory
           </Typography>

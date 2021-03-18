@@ -3,17 +3,19 @@ import Button from "@material-ui/core/Button";
 import "fontsource-roboto";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import TextField from "@material-ui/core/TextField";
+
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import FormControl from "@material-ui/core/FormControl";
+
 import {
   makeStyles,
   ThemeProvider,
   createMuiTheme,
 } from "@material-ui/core/styles";
 import { purple, green } from "@material-ui/core/colors";
-
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   root: {
@@ -28,7 +30,11 @@ const useStyles = makeStyles({
 const theme = createMuiTheme({
   typography: {
     h1: {
-      fontSize: 18,
+      fontSize: 50,
+      margin: 50,
+    },
+    body: {
+      fontSize: 101,
     },
   },
   palette: {
@@ -40,11 +46,6 @@ const theme = createMuiTheme({
     },
   },
 });
-
-function ButtonStyled() {
-  const classes = useStyles();
-  return <Button className={classes.root}>Test</Button>;
-}
 
 const LoginUser = () => {
   function createCookie(name, value) {
@@ -85,46 +86,43 @@ const LoginUser = () => {
         content="minimum-scale=1, initial-scale=1, width=device-width"
       />
       <ThemeProvider theme={theme}>
-        <Container maxWidth="sm">
-          <Typography variant="h1">Welcome</Typography>
-
-          <Grid container>
-            <Grid item xs={12}>
-              <Paper style={{ height: 75, width: "100%" }} />
-            </Grid>
-          </Grid>
-          <h1 className="mt-5 text-center">Login</h1>
+        <Container maxWidth="lg" align="center">
+          <Typography variant="h1" align="center">
+            Login to start shopping!
+          </Typography>
           <form
             onSubmit={(e) => {
               SendData(e);
             }}
             className="mt-5 text-center"
           >
-            <TextField
-              variant="outlined"
-              size="small"
-              label="Username"
-              type="text"
-              value={user_name}
-              onChange={(e) => setUserName(e.target.value)}
-            ></TextField>
-            <TextField
-              variant="outlined"
-              size="small"
-              label="Password"
-              type="password"
-              value={user_password}
-              onChange={(e) => setPassword(e.target.value)}
-            ></TextField>
-            <Button
-              type="submit"
-              variant="contained"
-              size="medium"
-              color="primary"
-              endIcon={<LockOpenIcon />}
-            >
-              Login
-            </Button>
+            <FormControl>
+              <TextField
+                variant="outlined"
+                size="small"
+                label="Username"
+                type="text"
+                value={user_name}
+                onChange={(e) => setUserName(e.target.value)}
+              ></TextField>
+              <TextField
+                variant="outlined"
+                size="small"
+                label="Password"
+                type="password"
+                value={user_password}
+                onChange={(e) => setPassword(e.target.value)}
+              ></TextField>
+              <Button
+                type="submit"
+                variant="contained"
+                size="medium"
+                color="primary"
+                endIcon={<LockOpenIcon />}
+              >
+                Login
+              </Button>
+            </FormControl>
           </form>
         </Container>
       </ThemeProvider>

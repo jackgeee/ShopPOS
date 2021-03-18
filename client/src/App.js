@@ -7,6 +7,9 @@ import ToolBar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link";
+import HomeIcon from '@material-ui/icons/Home';
 // import Cookies from "js-cookie";
 
 import ProductsPage from "./views/Admin/ProductsPage";
@@ -31,14 +34,16 @@ function adminApp() {
   );
 }
 
-{/* <AppBar>
+{
+  /* <AppBar>
   <ToolBar>
     <IconButton>
       <MenuIcon />
     </IconButton>
     <Typography variant="h6">Hello</Typography>
   </ToolBar>
-</AppBar>; */}
+</AppBar>; */
+}
 
 function userApp() {
   return (
@@ -56,27 +61,62 @@ const NavigationUser = () => (
     <ul>
       <li>
         <NavLink exact activeClassName="current" to="/landingpage">
-          Main Page
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Home
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/products_user">
-          Products
+        <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Products
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/user_cart">
-          Cart
+        <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Cart
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/signup_user">
-          Sign up
+        <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Sign up
+          </Button>
         </NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/login_user">
-          Log in
+        <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Log in
+          </Button>
         </NavLink>
       </li>
       <li>
@@ -88,7 +128,14 @@ const NavigationUser = () => (
             LogoutUser();
           }}
         >
-          Log out
+           <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            endIcon={<HomeIcon />}
+          >
+            Log out
+          </Button>
         </NavLink>
       </li>
     </ul>

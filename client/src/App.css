@@ -15,6 +15,8 @@
   }
 }
 
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,6 +26,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .App-link {
@@ -41,6 +49,7 @@
 
 .current {
   border-bottom: 4px solid white;
+  
 }
 
 html {
@@ -58,17 +67,23 @@ html {
   width: 960px;
   margin: 0 auto;
   padding: 20px;
+  
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  background-color: black;
-  margin-bottom: 20px;
+  background-color: rgb(0, 119, 128);
+  border-bottom-left-radius:5% 5%;
+  border-bottom-right-radius:5% 5%;
+  justify-content: center;
+  padding: 20px;
 }
 
 nav ul li {
-  padding: 20px;
+   display: flex;
+   padding: 10px;
+
 }
 
 nav ul li a {
@@ -82,9 +97,15 @@ nav ul li a {
 
 h1 {
   margin-bottom: 20px;
+  
+}
+
+body {
+  background-color: plum;
 }
 
 p {
+  
   margin-bottom: 15px;
 }
 
