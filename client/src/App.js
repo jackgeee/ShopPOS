@@ -21,6 +21,7 @@ import LoginAdminPage from "./views/Admin/LoginAdminPage";
 import LogoutUser from "./components/Auth/User/LogoutUser";
 import LogoutAdmin from "./components/Auth/Admin/LogoutAdmin";
 import UserCart from "./components/Products/User/UserCart";
+import Container from "@material-ui/core/Container";
 
 
 function adminApp() {
@@ -36,7 +37,7 @@ function adminApp() {
 
 function userApp() {
   return (
-    <Fragment>
+    <Fragment>   
       <div>
         <NavigationUser />
         <MainUser />
@@ -45,22 +46,12 @@ function userApp() {
   );
 }
 
-function initApp() {
-  return (
-    <Fragment>
-      <div>
-        <NavigationInit />
-        <MainInit />
-      </div>
-    </Fragment>
-  );
-}
-
-
 
 
 const NavigationUser = () => (
+ 
   <nav>
+     <Container>
     <ul>
       <li>
         <NavLink exact activeClassName="current" to="/landingpage">
@@ -142,12 +133,18 @@ const NavigationUser = () => (
         </NavLink>
       </li>
     </ul>
+    </Container>
   </nav>
 );
 
 const NavigationAdmin = () => (
+  
   <nav>
     <ul>
+    <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
       <li>
         <NavLink exact activeClassName="current" to="/products">
           <Button
@@ -231,66 +228,12 @@ const NavigationAdmin = () => (
   </nav>
 );
 
-const NavigationInit = () => (
-  <nav>
-  <ul>
-    <li>
-      <NavLink exact activeClassName="current" to="/signup_admin">
-        <Button
-          variant="contained"
-          size="medium"
-          color="primary"
-          endIcon={<HomeIcon />}
-        >
-          Signup Administrator
-        </Button>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink exact activeClassName="current" to="/login_admin">
-        <Button
-          variant="contained"
-          size="medium"
-          color="primary"
-          endIcon={<HomeIcon />}
-        >
-          Login Administrator
-        </Button>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink exact activeClassName="current" to="/signup_user">
-        <Button
-          variant="contained"
-          size="medium"
-          color="primary"
-          endIcon={<PersonAddIcon />}
-        >
-          Signup User
-        </Button>
-      </NavLink>
-    </li>
-    <li>
-      <NavLink exact activeClassName="current" to="/login_user">
-        <Button
-          variant="contained"
-          size="medium"
-          color="primary"
-          endIcon={<HomeIcon />}
-        >
-          Login User
-        </Button>
-      </NavLink>
-    </li>
-  </ul>
-</nav>
-);
-
 const Main = () => (
   <Switch>
     <Route exact path="/landingpage" component={LandingPage}></Route>
     <Route exact path="/products" component={ProductsPage}></Route>
     <Route exact path="/signup_admin" component={SignupPageAdmin}></Route>
+    <Route exact path="/signup_user" component={SignupPage}></Route>
     <Route exact path="/login_admin" component={LoginAdminPage}></Route>
     <Route exact path="/login_user" component={LoginPage}></Route>
   </Switch>
@@ -306,16 +249,6 @@ const MainUser = () => (
   </Switch>
 );
 
-const MainInit = () => (
-  <Switch>
-    <Route exact path="/landingpage" component={LandingPage}></Route>
-    <Route exact path="/signup_user" component={SignupPage}></Route>
-    <Route exact path="/login_user" component={LoginPage}></Route>
-    <Route exact path="/signup_admin" component={SignupPageAdmin}></Route>
-    <Route exact path="/login_admin" component={LoginAdminPage}></Route>
-  </Switch>
-);
 
 export const Admin = adminApp;
 export const User = userApp;
-export const Init = initApp;

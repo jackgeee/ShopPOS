@@ -6,16 +6,13 @@ import TextField from "@material-ui/core/TextField";
 
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import FormControl from "@material-ui/core/FormControl";
 
 import {
-  makeStyles,
   ThemeProvider,
   createMuiTheme,
 } from "@material-ui/core/styles";
-import { purple, green } from "@material-ui/core/colors";
+import { orange, green } from "@material-ui/core/colors";
 
 
 const theme = createMuiTheme({
@@ -30,7 +27,7 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: purple[500],
+      main: orange[500],
     },
     secondary: {
       main: green[500],

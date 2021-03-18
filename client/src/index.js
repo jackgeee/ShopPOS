@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import user from './App';
 // import admin from './App'
-import {Admin, User, Init} from "./App";
+import {Admin, User} from "./App";
 
 import { BrowserRouter } from 'react-router-dom';
 import Cookies from "js-cookie";
@@ -39,13 +39,3 @@ ReactDOM.render(
 
 }
 
-// else {
-
-// ReactDOM.render(
-//   <BrowserRouter>
-//   <Init />
-//   </BrowserRouter>,
-//   document.getElementById('root')
-//   );
-
-// }

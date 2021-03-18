@@ -1,17 +1,11 @@
-import Fragment from "react";
+
 import Button from "@material-ui/core/Button";
 import "fontsource-roboto";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
-import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import FormControl from "@material-ui/core/FormControl";
 import Link from "@material-ui/core/Link";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import {
-  makeStyles,
   ThemeProvider,
   createMuiTheme,
 } from "@material-ui/core/styles";
@@ -51,8 +45,9 @@ const LandingPage = () => (
       <Typography>
         I built this store app to learn more about full stack development.
       </Typography>
+      <Typography>It's definitely still a work in progress.</Typography>
       <Typography>For the back-end, I used Express and PostgresSQL.</Typography>
-      <Typography>For front-end, I used React and Material-UI.</Typography>
+      <Typography>For the front-end, I used React and Material-UI.</Typography>
       <Typography>Here's the source code: </Typography>
       <Link component="button" variant="body2" endIcon={<GitHubIcon />}>
         <Button endIcon={<GitHubIcon />} size="large">

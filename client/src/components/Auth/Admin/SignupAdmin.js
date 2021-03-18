@@ -15,7 +15,7 @@ import {
   ThemeProvider,
   createMuiTheme,
 } from "@material-ui/core/styles";
-import { purple, green } from "@material-ui/core/colors";
+import { green, blue } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   typography: {
@@ -29,10 +29,10 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: purple[500],
+      main: green[500],
     },
     secondary: {
-      main: green[500],
+      main: blue[500],
     },
   },
 });

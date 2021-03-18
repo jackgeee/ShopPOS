@@ -5,7 +5,6 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const user_name_cookie = Cookies.get("user_name");
 
-
 const AddToCart = ({ product }) => {
   const [quantity, setQuantity] = useState("");
 
@@ -56,8 +55,12 @@ const AddToCart = ({ product }) => {
 
   return (
     <Fragment>
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
       <Button
-        endIcon={<AddShoppingCartIcon/>}
+        endIcon={<AddShoppingCartIcon />}
         onClick={(e) => getProduct(e)}
         variant="outlined"
         size="sm"
@@ -66,7 +69,7 @@ const AddToCart = ({ product }) => {
       >
         Add To Cart
       </Button>
-  
+
       <div class="modal" id={`id${product.product_id}`}>
         <div class="modal-dialog">
           <div class="modal-content">

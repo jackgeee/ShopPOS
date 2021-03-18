@@ -71,6 +71,10 @@ const TextFieldProducts = () => {
 
   return (
     <Fragment>
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
       <ThemeProvider theme={theme}>
         <Container maxWidth="lg" align="center">
           <Typography variant="h1" align="center">
@@ -112,6 +116,7 @@ const TextFieldProducts = () => {
                   onChange={(e) => setImage(e.target.value)}
                 ></TextField>
                 <Button
+                  type="submit"
                   endIcon={<AddCircleIcon />}
                   variant="outlined"
                   size="sm"

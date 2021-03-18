@@ -1,7 +1,9 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Button from "@material-ui/core/Button";
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
+import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
+import Container from "@material-ui/core/Container";
+
 const user_name = Cookies.get("user_name");
 
 const ListProductsInCart = () => {
@@ -43,39 +45,54 @@ const ListProductsInCart = () => {
 
   return (
     <Fragment>
-      <table className="table mt-5 text-center">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Image</th>
-            <th>Remove From Cart</th>
-
-          </tr>
-        </thead>
-        <tbody>
-        {products.map((product) => (
-            <tr key={product.user_name}>
-              <td>{product.product_name}</td>
-              <td>{product.product_price}</td>
-              <td>{product.quantity}</td>
-              <td>
-                <img src={product.product_image} width = "100" height = "100" alt = "product_image" />
-              </td>
-              <td>
-              <Button 
-              endIcon = {<RemoveShoppingCartIcon />}
-              variant = "outlined"
-              size = "sm"
-              onClick={() => removeFromCart(product.product_id)}>
-                Remove from cart
-              </Button>
-              </td>
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
+      <Container>
+        <table className="table mt-5 text-center">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Image</th>
+              <th>Remove From Cart</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <tr key={product.user_name}>
+                <td>{product.product_name}</td>
+                <td>{product.product_price}</td>
+                <td>{product.quantity}</td>
+                <td>
+                  <img
+                    src={product.product_image}
+                    width="100"
+                    height="100"
+                    alt="product_image"
+                  />
+                </td>
+                <td>
+                  <Button
+                    endIcon={<RemoveShoppingCartIcon />}
+                    variant="outlined"
+                    size="sm"
+                    onClick={() => removeFromCart(product.product_id)}
+                  >
+                    Remove from cart
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Container>
     </Fragment>
   );
 };

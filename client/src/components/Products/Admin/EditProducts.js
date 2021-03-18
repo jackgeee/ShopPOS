@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Button from "@material-ui/core/Button";
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from "@material-ui/icons/Edit";
 
 const EditProducts = ({ product }) => {
   const [product_name, setName] = useState(product.product_name);
@@ -35,8 +35,12 @@ const EditProducts = ({ product }) => {
 
   return (
     <Fragment>
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
       <Button
-        endIcon={<EditIcon/>}
+        endIcon={<EditIcon />}
         variant="outlined"
         size="sm"
         data-toggle="modal"
