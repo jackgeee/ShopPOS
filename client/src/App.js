@@ -1,6 +1,12 @@
 import React, { Fragment } from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
 import "./App.css";
+import "fontsource-roboto";
+import AppBar from "@material-ui/core/AppBar";
+import ToolBar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import Typography from "@material-ui/core/Typography";
 // import Cookies from "js-cookie";
 
 import ProductsPage from "./views/Admin/ProductsPage";
@@ -24,6 +30,15 @@ function adminApp() {
     </Fragment>
   );
 }
+
+{/* <AppBar>
+  <ToolBar>
+    <IconButton>
+      <MenuIcon />
+    </IconButton>
+    <Typography variant="h6">Hello</Typography>
+  </ToolBar>
+</AppBar>; */}
 
 function userApp() {
   return (

@@ -11,13 +11,12 @@ app.post("/login", async (req, res) => {
       "SELECT * FROM users WHERE user_name = $1 AND user_password = crypt($2, user_password)",
       [user_name, user_password]
     );
-    if (user_check.rows.length !== 0) {
-      
-      res.json(user_check.rows[0]["logged_in"]);
+    if (user_check.rows.length > 0) {
       const user_logged_in = await pool.query(
         "UPDATE users SET logged_in = TRUE WHERE user_name = $1",
         [user_name]
       );
+      res.json(true);
     } else {
       res.json("Wrong username or password");
     }
@@ -35,12 +34,12 @@ app.post("/login_admin", async (req, res) => {
       "SELECT * FROM admins WHERE admin_name = $1 AND admin_password = crypt($2, admin_password)",
       [admin_name, admin_password]
     );
-    if (admin_check.rows.length !== 0) {
-      res.json(admin_check.rows[0]["logged_in"]);
+    if (admin_check.rows.length > 0) {
       const admin_logged_in = await pool.query(
         "UPDATE admins SET logged_in = TRUE WHERE admin_name = $1",
         [admin_name]
       );
+      res.json(true);
     } else {
       res.json("Wrong username or password");
     }
