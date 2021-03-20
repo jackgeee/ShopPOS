@@ -43,10 +43,11 @@ const LandingPage = () => (
       </Typography>
 
       <Typography>
-        I built this store app to learn more about full stack development.
+        I built this store app to learn more about full stack development; it's still a work in progress.
       </Typography>
-      <Typography>It's definitely still a work in progress.</Typography>
-      <Typography>For the back-end, I used Express and PostgresSQL.</Typography>
+      <Typography>Admins can add new products and edit existing products in the "products" page</Typography>
+      <Typography>Users can view products and add them to their cart</Typography>
+      <Typography>For the back-end, I used Node, Express and PostgresSQL.</Typography>
       <Typography>For the front-end, I used React and Material-UI.</Typography>
       <Typography>Here's the source code: </Typography>
       <Link component="button" variant="body2" endIcon={<GitHubIcon />}>

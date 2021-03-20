@@ -21,10 +21,6 @@ app.use(Login_Routes);
 app.use(Logout_Routes);
 app.use(Order_Routes);
 
-// app.get('/', function (req, res) {
-//   res.cookie('test_cookie', 'exists').send('cookie set'); //Sets name = express
-//   // console.log(res.cookie);
-// })
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");

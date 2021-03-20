@@ -6,12 +6,9 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import FormControl from "@material-ui/core/FormControl";
 
 import {
-  makeStyles,
   ThemeProvider,
   createMuiTheme,
 } from "@material-ui/core/styles";
@@ -58,7 +55,7 @@ const SignupAdmin = () => {
           body: JSON.stringify(body),
         });
         createCookie("admin_name", admin_name);
-        window.location = "http://localhost:3000/products";
+        window.location = "http://localhost:3000/landingpage";
         return;
       } catch (error) {
         console.error(error.message);

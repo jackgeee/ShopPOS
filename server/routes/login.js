@@ -48,29 +48,4 @@ app.post("/login_admin", async (req, res) => {
   }
 });
 
-// CHECK IF LOGGED_IN SESSION == TRUE // 
 
-// app.get("/login", async (req, res) => {
-//   try {
-//     const { user_name } = req.body;
-//     get_user_session = await pool.query(
-//       "SELECT (logged_in) FROM users WHERE user_name = $1",
-//       [user_name]
-//     );
-//     res.json(get_user_session.rows);
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// });
-
-// app.post('/setcookie', function (req, res) {
-//   const {user_name} = req.body;
-//   req.cookie("user_name", user_name.data()).send('cookie set');
-//   next();
-// });
-
-
-// app.get('/getcookie', function (req, res) {
-//   res.cookie("user_name", "user_name").send('cookie set');
-//   next();
-// });

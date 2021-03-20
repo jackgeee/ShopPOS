@@ -14,7 +14,7 @@ function createCookie(name, value) {
 }
 
 // RUN THIS ON INITIALIZATION 
-createCookie("admin_name", "god");
+createCookie("admin_name", "admin");
 
 const admin_logged = Cookies.get("admin_name");
 const user_logged = Cookies.get("user_name");

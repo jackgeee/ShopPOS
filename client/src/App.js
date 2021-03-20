@@ -23,7 +23,6 @@ import LogoutAdmin from "./components/Auth/Admin/LogoutAdmin";
 import UserCart from "./components/Products/User/UserCart";
 import Container from "@material-ui/core/Container";
 
-
 function adminApp() {
   return (
     <Fragment>
@@ -37,7 +36,7 @@ function adminApp() {
 
 function userApp() {
   return (
-    <Fragment>   
+    <Fragment>
       <div>
         <NavigationUser />
         <MainUser />
@@ -46,13 +45,101 @@ function userApp() {
   );
 }
 
-
-
 const NavigationUser = () => (
- 
   <nav>
-     <Container>
+    <Container>
+      <ul>
+        <li>
+          <NavLink exact activeClassName="current" to="/landingpage">
+            <Button
+              variant="contained"
+              size="medium"
+              color="primary"
+              endIcon={<HomeIcon />}
+            >
+              Home
+            </Button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact activeClassName="current" to="/products_user">
+            <Button
+              variant="contained"
+              size="medium"
+              color="primary"
+              endIcon={<ShopIcon />}
+            >
+              Products
+            </Button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact activeClassName="current" to="/user_cart">
+            <Button
+              variant="contained"
+              size="medium"
+              color="primary"
+              endIcon={<ShoppingCartIcon />}
+            >
+              Cart
+            </Button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact activeClassName="current" to="/signup_user">
+            <Button
+              variant="contained"
+              size="medium"
+              color="primary"
+              endIcon={<PersonAddIcon />}
+            >
+              Sign up
+            </Button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact activeClassName="current" to="/login_user">
+            <Button
+              variant="contained"
+              size="medium"
+              color="primary"
+              endIcon={<LockOpenIcon />}
+            >
+              Log in
+            </Button>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className="logout"
+            exact
+            to="/logout"
+            onClick={() => {
+              LogoutUser();
+            }}
+          >
+            <Button
+              variant="contained"
+              size="medium"
+              color="primary"
+              endIcon={<ExitToAppIcon />}
+            >
+              Log out
+            </Button>
+          </NavLink>
+        </li>
+      </ul>
+    </Container>
+  </nav>
+);
+
+const NavigationAdmin = () => (
+  <nav>
     <ul>
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
       <li>
         <NavLink exact activeClassName="current" to="/landingpage">
           <Button
@@ -65,86 +152,6 @@ const NavigationUser = () => (
           </Button>
         </NavLink>
       </li>
-      <li>
-        <NavLink exact activeClassName="current" to="/products_user">
-          <Button
-            variant="contained"
-            size="medium"
-            color="primary"
-            endIcon={<ShopIcon />}
-          >
-            Products
-          </Button>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink exact activeClassName="current" to="/user_cart">
-          <Button
-            variant="contained"
-            size="medium"
-            color="primary"
-            endIcon={<ShoppingCartIcon />}
-          >
-            Cart
-          </Button>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink exact activeClassName="current" to="/signup_user">
-          <Button
-            variant="contained"
-            size="medium"
-            color="primary"
-            endIcon={<PersonAddIcon />}
-          >
-            Sign up
-          </Button>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink exact activeClassName="current" to="/login_user">
-          <Button
-            variant="contained"
-            size="medium"
-            color="primary"
-            endIcon={<LockOpenIcon />}
-          >
-            Log in
-          </Button>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className="logout"
-          exact
-          to="/logout"
-          onClick={() => {
-            LogoutUser();
-          }}
-        >
-          <Button
-            variant="contained"
-            size="medium"
-            color="primary"
-            endIcon={<ExitToAppIcon />}
-          >
-            Log out
-          </Button>
-        </NavLink>
-      </li>
-    </ul>
-    </Container>
-  </nav>
-);
-
-const NavigationAdmin = () => (
-  
-  <nav>
-    <ul>
-    <meta
-        name="viewport"
-        content="minimum-scale=1, initial-scale=1, width=device-width"
-      />
       <li>
         <NavLink exact activeClassName="current" to="/products">
           <Button
@@ -248,7 +255,6 @@ const MainUser = () => (
     <Route exact path="/user_cart" component={UserCart}></Route>
   </Switch>
 );
-
 
 export const Admin = adminApp;
 export const User = userApp;
