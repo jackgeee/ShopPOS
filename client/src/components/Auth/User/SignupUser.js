@@ -8,11 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import FormControl from "@material-ui/core/FormControl";
 
-
-import {
-  ThemeProvider,
-  createMuiTheme,
-} from "@material-ui/core/styles";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { pink, green } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
@@ -36,6 +32,10 @@ const theme = createMuiTheme({
 });
 
 const SignupUser = () => {
+  function createCookie(name, value) {
+    document.cookie = name + "=" + value + "; path=/";
+  }
+
   const [user_name, setUserName] = useState("");
   const [user_password, setPassword] = useState("");
   const [confirm_password, setConfirmPassword] = useState("");
@@ -51,6 +51,7 @@ const SignupUser = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
         });
+        createCookie("user_name", user_name);
         window.location = "http://localhost:3000/landingpage";
         return;
       } catch (error) {
